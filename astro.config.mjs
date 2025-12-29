@@ -6,11 +6,11 @@ export default defineConfig({
   integrations: [tailwind()],
 
   // dev mode
-  site: 'http://localhost:4321',
+  // site: 'http://localhost:4321',
 
   // production mode
-  // site: 'https://image.idealclover.cn/projects/Homepage',
+  site: 'https://www.houxiongxiong.icu',
 
   // mode: 不同的网站 cn/top/moe
-  siteMode: "moe"
+  siteMode: "icu"
 });
