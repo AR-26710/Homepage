@@ -6,6 +6,7 @@ import Card_4x2 from "./card_4x2.astro";
 import Card_8x1 from "./card_8x1.astro";
 import Articles_List from "./articles_list.astro";
 import info from "../data/info";
+import beian from "../data/beian";
 // const showCV = false;
 ---
 
@@ -32,108 +33,138 @@ import info from "../data/info";
     <main>
       <div class="pt-10 xl:pt-20"></div>
       <div class="grid grid-cols-4 gap-x-4 lg:gap-x-8 lg:w-[54rem]">
-        <div class="col-span-4 md:col-span-2">
-          <Card_4x2 info={info.titleCard} />
-          <Card_4x2 info={info.blogCard} />
-        </div>
+        {info.cardVisibility.showTitleCard && (
+          <div class="col-span-4 md:col-span-2">
+            <Card_4x2 info={info.titleCard} />
+          </div>
+        )}
+        {info.cardVisibility.showBlogCard && (
+          <div class="col-span-4 md:col-span-2">
+            <Card_4x2 info={info.blogCard} />
+          </div>
+        )}
 
-        <div class="hidden md:block col-span-2">
-          <Card_2x1 info={info.primaryCards[0]} />
-          <Card_2x1 info={info.primaryCards[1]} />
-          <Card_2x1 info={info.primaryCards[2]} />
-          <Card_2x1 info={info.primaryCards[3]} />
-        </div>
+        {info.cardVisibility.showPrimaryCards && (
+          <div class="hidden md:block col-span-2">
+            <Card_2x1 info={info.primaryCards[0]} />
+            <Card_2x1 info={info.primaryCards[1]} />
+            <Card_2x1 info={info.primaryCards[2]} />
+            <Card_2x1 info={info.primaryCards[3]} />
+          </div>
+        )}
 
         <!-- 文章列表 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[0]} />
-          <Articles_List />
-        </div>
+        {info.cardVisibility.showArticlesSection && (
+          <div class="col-span-4">
+            <Card_8x1 info={info.sectionTitles[0]} />
+            <Articles_List />
+          </div>
+        )}
 
         <!-- 个人项目 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[1]} />
-        </div>
-        <div class="col-span-4 md:col-span-2">
-          <Card_4x2 info={info.projectCardStart} />
-        </div>
-        {
-          info.projectCards.map((card) => (
-            <div class="col-span-4 sm:col-span-2 md:col-span-1">
-              <Card_2x2 info={card} />
+        {info.cardVisibility.showProjectsSection && (
+          <>
+            <div class="col-span-4">
+              <Card_8x1 info={info.sectionTitles[1]} />
             </div>
-          ))
-        }
-        <div class="col-span-4 md:col-span-2">
-          <Card_4x2 info={info.projectCardEnd} />
-        </div>
+            <div class="col-span-4 md:col-span-2">
+              <Card_4x2 info={info.projectCardStart} />
+            </div>
+            {
+              info.projectCards.map((card) => (
+                <div class="col-span-4 sm:col-span-2 md:col-span-1">
+                  <Card_2x2 info={card} />
+                </div>
+              ))
+            }
+            <div class="col-span-4 md:col-span-2">
+              <Card_4x2 info={info.projectCardEnd} />
+            </div>
+          </>
+        )}
 
         <!-- 生活日记 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[2]} />
-        </div>
-        <div class="col-span-4 overflow-x-auto scrollbar-hide">
-          <div
-            class="flex flex-nowrap gap-4 pb-4 md:hidden"
-            style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
-          >
-            {
-              info.diaryCards.map((card) => (
-                <div
-                  class="flex-none w-[55%] scroll-snap-align-start"
-                  style="scroll-snap-align: start;"
-                >
-                  <Card_2x3 info={card} />
-                </div>
-              ))
-            }
-          </div>
-          <div class="hidden md:grid md:grid-cols-4 gap-x-4 lg:gap-x-8">
-            {
-              info.diaryCards.map((card) => (
-                <div class="col-span-1">
-                  <Card_2x3 info={card} />
-                </div>
-              ))
-            }
-          </div>
-        </div>
+        {info.cardVisibility.showDiarySection && (
+          <>
+            <div class="col-span-4">
+              <Card_8x1 info={info.sectionTitles[2]} />
+            </div>
+            <div class="col-span-4 overflow-x-auto scrollbar-hide">
+              <div
+                class="flex flex-nowrap gap-4 pb-4 md:hidden"
+                style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
+              >
+                {
+                  info.diaryCards.map((card) => (
+                    <div
+                      class="flex-none w-[55%] scroll-snap-align-start"
+                      style="scroll-snap-align: start;"
+                    >
+                      <Card_2x3 info={card} />
+                    </div>
+                  ))
+                }
+              </div>
+              <div class="hidden md:grid md:grid-cols-4 gap-x-4 lg:gap-x-8">
+                {
+                  info.diaryCards.map((card) => (
+                    <div class="col-span-1">
+                      <Card_2x3 info={card} />
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </>
+        )}
 
         <!-- 音乐创作 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[3]} />
-        </div>
-        {
-          info.musicCards.map((card) => (
-            <div class="col-span-4 md:col-span-2">
-              <Card_4x2 info={card} />
+        {info.cardVisibility.showMusicSection && (
+          <>
+            <div class="col-span-4">
+              <Card_8x1 info={info.sectionTitles[3]} />
             </div>
-          ))
-        }
+            {
+              info.musicCards.map((card) => (
+                <div class="col-span-4 md:col-span-2">
+                  <Card_4x2 info={card} />
+                </div>
+              ))
+            }
+          </>
+        )}
 
         <!-- 关注翠翠 -->
-        <div class="md:hidden col-span-4">
-          <Card_8x1 info={info.sectionTitles[4]} />
-        </div>
-        {
-          info.primaryCards.map((card) => (
-            <div class="md:hidden sm:col-span-2 col-span-4">
-              <Card_2x1 info={card} />
+        {info.cardVisibility.showPrimaryCardsMobile && (
+          <>
+            <div class="md:hidden col-span-4">
+              <Card_8x1 info={info.sectionTitles[4]} />
             </div>
-          ))
-        }
+            {
+              info.primaryCards.map((card) => (
+                <div class="md:hidden sm:col-span-2 col-span-4">
+                  <Card_2x1 info={card} />
+                </div>
+              ))
+            }
+          </>
+        )}
 
         <!-- 联系方式 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[5]} />
-        </div>
-        {
-          info.teleCards.map((card) => (
-            <div class="col-span-4 md:col-span-2">
-              <Card_2x1 info={card} />
+        {info.cardVisibility.showContactSection && (
+          <>
+            <div class="col-span-4">
+              <Card_8x1 info={info.sectionTitles[5]} />
             </div>
-          ))
-        }
+            {
+              info.teleCards.map((card) => (
+                <div class="col-span-4 md:col-span-2">
+                  <Card_2x1 info={card} />
+                </div>
+              ))
+            }
+          </>
+        )}
       </div>
 
       <footer class="text-center py-10">
@@ -161,22 +192,18 @@ import info from "../data/info";
             class="text-gray-400">bento.me</a
           >
         </div>
-        <div class="beian">
-          <a
-            href="https://beian.miit.gov.cn"
-            rel="noreferrer"
-            target="_blank"
-            class="text-gray-400">京ICP备2024045824号</a
-          >
-        </div>
-        <div class="beian">
-          <a
-            href="https://beian.mps.gov.cn/#/query/webSearch?code=11010502054688"
-            rel="noreferrer"
-            target="_blank"
-            class="text-gray-400">京公网安备11010502054688号</a
-          >
-        </div>
+        {
+          beian.map((item) => (
+            <div class="beian">
+              <a
+                href={item.url}
+                rel="noreferrer"
+                target="_blank"
+                class="text-gray-400">{item.name}</a
+              >
+            </div>
+          ))
+        }
       </footer>
     </main>
   </div>

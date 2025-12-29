@@ -4,11 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "npm run prebuild && astro dev",
+    "dev:all": "concurrently \"npm run dev\" \"cd admin && npm run dev\"",
     "start": "npm run prebuild && astro dev",
+    "start:all": "concurrently \"npm run start\" \"cd admin && npm run start\"",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-
     "prebuild": "node build/prebuild",
     "fontmin": "node build/fontmin",
     "postbuild": "npm run fontmin && node build/postbuild"
@@ -22,6 +23,7 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "fontmin": "^1.1.0",
     "terser": "^5.31.1"
   }
