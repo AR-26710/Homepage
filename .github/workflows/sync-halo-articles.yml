@@ -1,0 +1,40 @@
+name: Sync Halo Articles
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run sync script
+        env:
+          HALO_API_URL: ${{ secrets.HALO_API_URL }}
+          HALO_LATEST_PATH: ${{ secrets.HALO_LATEST_PATH || '/archives' }}
+          HALO_CATEGORY_PATH_PREFIX: ${{ secrets.HALO_CATEGORY_PATH_PREFIX || '/categories' }}
+          HALO_ARTICLES_PER_CATEGORY: ${{ secrets.HALO_ARTICLES_PER_CATEGORY || '5' }}
+        run: node scripts/syncHaloArticles.js
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Sync Halo articles"
+          git pull --rebase origin $(git rev-parse --abbrev-ref HEAD)
+          git push origin $(git rev-parse --abbrev-ref HEAD)

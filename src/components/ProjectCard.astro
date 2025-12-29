@@ -1,18 +1,8 @@
 ---
+import type { Card2x2Props } from '../data/types';
+
 interface Props {
-  info: {
-    title: string;
-    desc?: string;
-    fulldesc?: string;
-    subdesc?: string;
-    url: string;
-    btnText: string;
-    btnTextFull?: string;
-    bgStyle: string;
-    btnStyle?: string;
-    textStyle?: string;
-    updateUrl?: string;
-  };
+  info: Card2x2Props;
 }
 
 const { info } = Astro.props;

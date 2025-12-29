@@ -1,0 +1,20 @@
+name: Sync All
+
+on:
+  schedule:
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+
+jobs:
+  sync-halo-articles:
+    uses: ./.github/workflows/sync-halo-articles.yml
+    secrets: inherit
+
+  update-bilibili-views:
+    uses: ./.github/workflows/update-bilibili-views.yml
+    secrets: inherit
+
+  update-last-update:
+    needs: [sync-halo-articles, update-bilibili-views]
+    uses: ./.github/workflows/update-last-update.yml
+    secrets: inherit

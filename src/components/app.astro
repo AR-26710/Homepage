@@ -1,12 +1,25 @@
 ---
-import Card_2x1 from "./card_2x1.astro";
-import Card_2x2 from "./card_2x2.astro";
-import Card_2x3 from "./card_2x3.astro";
-import Card_4x2 from "./card_4x2.astro";
-import Card_8x1 from "./card_8x1.astro";
-import Articles_List from "./articles_list.astro";
+import { Image } from "astro:assets";
+import LinkCard from "./LinkCard.astro";
+import InfoCard from "./InfoCard.astro";
+import ProjectCard from "./ProjectCard.astro";
+import ImageCard from "./ImageCard.astro";
+import SectionTitle from "./SectionTitle.astro";
+import ArticlesList from "./ArticlesList.astro";
 import info from "../data/info";
-// const showCV = false;
+import beian from "../data/beian";
+
+const cardOrder = info.cardVisibility.order || [
+  'showTitleCard',
+  'showBlogCard',
+  'showPrimaryCards',
+  'showArticlesSection',
+  'showProjectsSection',
+  'showDiarySection',
+  'showMusicSection',
+  'showPrimaryCardsMobile',
+  'showContactSection',
+];
 ---
 
 <div class="container m-auto lg:max-xl:w-min main">
@@ -18,122 +31,142 @@ import info from "../data/info";
     >
       <div class="pt-10 xl:pt-20"></div>
       <div class="w-64">
-        <img
-          class="w-32 h-32 md:w-52 md:h-52 rounded-full"
+        <Image
+          class="w-32 h-32 md:w-52 md:h-52 rounded-full object-cover"
           src={info.imgUrl}
           alt={info.title}
+          width={208}
+          height={208}
+          loading="eager"
         />
         <div class="pt-10"></div>
         <h1 class="text-4xl font-bold pl-2">{info.title}</h1>
         <p class="text-lg pl-2">{info.desc}</p>
+        {info.lastUpdate && (
+          <p class="text-sm pl-2 text-gray-500 mt-2">
+            信息最后更新: {info.lastUpdate}
+          </p>
+        )}
       </div>
     </aside>
 
     <main>
       <div class="pt-10 xl:pt-20"></div>
       <div class="grid grid-cols-4 gap-x-4 lg:gap-x-8 lg:w-[54rem]">
-        <div class="col-span-4 md:col-span-2">
-          <Card_4x2 info={info.titleCard} />
-          <Card_4x2 info={info.blogCard} />
-        </div>
+        {cardOrder.map((key) => {
+          // 检查卡片是否可见
+          if (!info.cardVisibility[key]) return null;
 
-        <div class="hidden md:block col-span-2">
-          <Card_2x1 info={info.primaryCards[0]} />
-          <Card_2x1 info={info.primaryCards[1]} />
-          <Card_2x1 info={info.primaryCards[2]} />
-          <Card_2x1 info={info.primaryCards[3]} />
-        </div>
-
-        <!-- 文章列表 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[0]} />
-          <Articles_List />
-        </div>
-
-        <!-- 个人项目 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[1]} />
-        </div>
-        <div class="col-span-4 md:col-span-2">
-          <Card_4x2 info={info.projectCardStart} />
-        </div>
-        {
-          info.projectCards.map((card) => (
-            <div class="col-span-4 sm:col-span-2 md:col-span-1">
-              <Card_2x2 info={card} />
-            </div>
-          ))
-        }
-        <div class="col-span-4 md:col-span-2">
-          <Card_4x2 info={info.projectCardEnd} />
-        </div>
-
-        <!-- 生活日记 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[2]} />
-        </div>
-        <div class="col-span-4 overflow-x-auto scrollbar-hide">
-          <div
-            class="flex flex-nowrap gap-4 pb-4 md:hidden"
-            style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
-          >
-            {
-              info.diaryCards.map((card) => (
-                <div
-                  class="flex-none w-[55%] scroll-snap-align-start"
-                  style="scroll-snap-align: start;"
-                >
-                  <Card_2x3 info={card} />
+          // 使用对象映射简化条件判断
+          const renderCard = {
+            showTitleCard: () => (
+              <div class="col-span-4 md:col-span-2">
+                <InfoCard info={info.titleCard} />
+              </div>
+            ),
+            showBlogCard: () => (
+              <div class="col-span-4 md:col-span-2">
+                <InfoCard info={info.blogCard} />
+              </div>
+            ),
+            showPrimaryCards: () => (
+              <div class="hidden md:block col-span-2">
+                {info.primaryCards.map((card) => (
+                  <LinkCard info={card} />
+                ))}
+              </div>
+            ),
+            showArticlesSection: () => (
+              <div class="col-span-4">
+                <SectionTitle info={info.sectionTitles[0]} />
+                <ArticlesList />
+              </div>
+            ),
+            showProjectsSection: () => (
+              <>
+                <div class="col-span-4">
+                  <SectionTitle info={info.sectionTitles[1]} />
                 </div>
-              ))
-            }
-          </div>
-          <div class="hidden md:grid md:grid-cols-4 gap-x-4 lg:gap-x-8">
-            {
-              info.diaryCards.map((card) => (
-                <div class="col-span-1">
-                  <Card_2x3 info={card} />
+                <div class="col-span-4 md:col-span-2">
+                  <InfoCard info={info.projectCardStart} />
                 </div>
-              ))
-            }
-          </div>
-        </div>
+                {info.projectCards.map((card) => (
+                  <div class="col-span-4 sm:col-span-2 md:col-span-1">
+                    <ProjectCard info={card} />
+                  </div>
+                ))}
+                <div class="col-span-4 md:col-span-2">
+                  <InfoCard info={info.projectCardEnd} />
+                </div>
+              </>
+            ),
+            showDiarySection: () => (
+              <>
+                <div class="col-span-4">
+                  <SectionTitle info={info.sectionTitles[2]} />
+                </div>
+                <div class="col-span-4 overflow-x-auto scrollbar-hide">
+                  <div
+                    class="flex flex-nowrap gap-4 pb-4 md:hidden snap-x snap-mandatory"
+                    style="-webkit-overflow-scrolling: touch;"
+                  >
+                    {info.diaryCards.map((card) => (
+                      <div class="flex-none w-[55%] snap-start">
+                        <ImageCard info={card} />
+                      </div>
+                    ))}
+                  </div>
+                  <div class="hidden md:grid md:grid-cols-4 gap-x-4 lg:gap-x-8">
+                    {info.diaryCards.map((card) => (
+                      <div class="col-span-1">
+                        <ImageCard info={card} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            ),
+            showMusicSection: () => (
+              <>
+                <div class="col-span-4">
+                  <SectionTitle info={info.sectionTitles[3]} />
+                </div>
+                {info.musicCards.map((card) => (
+                  <div class="col-span-4 md:col-span-2">
+                    <InfoCard info={card} />
+                  </div>
+                ))}
+              </>
+            ),
+            showPrimaryCardsMobile: () => (
+              <>
+                <div class="md:hidden col-span-4">
+                  <SectionTitle info={info.sectionTitles[4]} />
+                </div>
+                {info.primaryCards.map((card) => (
+                  <div class="md:hidden sm:col-span-2 col-span-4">
+                    <LinkCard info={card} />
+                  </div>
+                ))}
+              </>
+            ),
+            showContactSection: () => (
+              <>
+                <div class="col-span-4">
+                  <SectionTitle info={info.sectionTitles[5]} />
+                </div>
+                {info.teleCards.map((card) => (
+                  <div class="col-span-4 md:col-span-2">
+                    <LinkCard info={card} />
+                  </div>
+                ))}
+              </>
+            )
+          };
 
-        <!-- 音乐创作 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[3]} />
-        </div>
-        {
-          info.musicCards.map((card) => (
-            <div class="col-span-4 md:col-span-2">
-              <Card_4x2 info={card} />
-            </div>
-          ))
-        }
-
-        <!-- 关注翠翠 -->
-        <div class="md:hidden col-span-4">
-          <Card_8x1 info={info.sectionTitles[4]} />
-        </div>
-        {
-          info.primaryCards.map((card) => (
-            <div class="md:hidden sm:col-span-2 col-span-4">
-              <Card_2x1 info={card} />
-            </div>
-          ))
-        }
-
-        <!-- 联系方式 -->
-        <div class="col-span-4">
-          <Card_8x1 info={info.sectionTitles[5]} />
-        </div>
-        {
-          info.teleCards.map((card) => (
-            <div class="col-span-4 md:col-span-2">
-              <Card_2x1 info={card} />
-            </div>
-          ))
-        }
+          // 调用对应的渲染函数并添加 key
+          return renderCard[key] ? <>{renderCard[key]()}</> : null;
+        })}
       </div>
 
       <footer class="text-center py-10">
@@ -161,51 +194,44 @@ import info from "../data/info";
             class="text-gray-400">bento.me</a
           >
         </div>
-        <div class="beian">
-          <a
-            href="https://beian.miit.gov.cn"
-            rel="noreferrer"
-            target="_blank"
-            class="text-gray-400">京ICP备2024045824号</a
-          >
-        </div>
-        <div class="beian">
-          <a
-            href="https://beian.mps.gov.cn/#/query/webSearch?code=11010502054688"
-            rel="noreferrer"
-            target="_blank"
-            class="text-gray-400">京公网安备11010502054688号</a
-          >
-        </div>
+        {
+          beian.map((item) => (
+            <div class="beian">
+              <a
+                href={item.url}
+                rel="noreferrer"
+                target="_blank"
+                class="text-gray-400">{item.name}</a
+              >
+            </div>
+          ))
+        }
       </footer>
     </main>
   </div>
 </div>
 
 <style>
-  .mail {
-    background: url("https://image.idealclover.cn/projects/Homepage/icons/icons.png") -0px -0px
-      no-repeat;
+  /* 公共样式：大图标 */
+  .icon-lg {
+    background-image: url("/icons/icons.png");
+    background-repeat: no-repeat;
     width: 64px;
     height: 64px;
+  }
+  
+  /* 大图标位置 */
+  .mail {
+    background-position: -0px -0px;
   }
   .QQ {
-    background: url("https://image.idealclover.cn/projects/Homepage/icons/icons.png") -64px -0px
-      no-repeat;
-    width: 64px;
-    height: 64px;
+    background-position: -64px -0px;
   }
   .telegram {
-    background: url("https://image.idealclover.cn/projects/Homepage/icons/icons.png") -128px -0px
-      no-repeat;
-    width: 64px;
-    height: 64px;
+    background-position: -128px -0px;
   }
   .twitter {
-    background: url("https://image.idealclover.cn/projects/Homepage/icons/icons.png") -192px -0px
-      no-repeat;
-    width: 64px;
-    height: 64px;
+    background-position: -192px -0px;
   }
 
   /* 隐藏滚动条但保留滚动功能 */

@@ -3,15 +3,18 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "npm run prebuild && astro dev",
-    "start": "npm run prebuild && astro dev",
+    "dev": "pnpm run prebuild && astro dev",
+    "dev:all": "concurrently \"pnpm run dev\" \"cd editor && pnpm run dev\"",
+    "start": "pnpm run prebuild && astro dev",
+    "start:all": "concurrently \"pnpm run start\" \"cd editor && pnpm run start\"",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-
     "prebuild": "node build/prebuild",
     "fontmin": "node build/fontmin",
-    "postbuild": "npm run fontmin && node build/postbuild"
+    "postbuild": "pnpm run fontmin && node build/postbuild",
+    "sync:halo": "node scripts/syncHaloArticles.js",
+    "sync:bilibili": "node scripts/updateBilibiliViews.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
@@ -22,7 +25,9 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "fontmin": "^1.1.0",
-    "terser": "^5.31.1"
+    "terser": "^5.31.1",
+    "vite-plugin-pwa": "^1.2.0"
   }
 }

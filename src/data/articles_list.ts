@@ -1,158 +1,241 @@
-export default [
-  {
-    title: "最新",
-    url: "https://idealclover.top/articles.html",
-    articles: [
-      {
-        title: "再赴一场盛夏：写给下一个五年",
-        url: "https://idealclover.top/archives/644",
-        time: "2025.08.31",
-      },
-      {
-        title: "咕咕了一年的新个人主页介绍",
-        url: "https://idealclover.top/archives/643",
-        time: "2025.03.07",
-      },
-      {
-        title: "所以我放弃了双持—兼谈折叠屏手机使用体验",
-        url: "https://idealclover.top/archives/642",
-        time: "2024.12.31",
-      },
-      {
-        title: "好评喵：轻松生成商品 / 服务评价",
-        url: "https://idealclover.top/archives/641",
-        time: "2024.11.17",
-      },
-      {
-        title: "2024 Q3 总结：灰烬里重新生根发芽",
-        url: "https://idealclover.top/archives/640",
-        time: "2024.11.09",
-      }
-    ],
-  },
-  {
-    title: "技术",
-    url: "https://idealclover.top/category/blog",
-    articles: [
-      {
-        title: "咕咕了一年的新个人主页介绍",
-        url: "https://idealclover.top/archives/643",
-        time: "2025.03.07",
-      },
-      {
-        title: "好评喵：轻松生成商品 / 服务评价",
-        url: "https://idealclover.top/archives/641",
-        time: "2024.11.17",
-      },
-      {
-        title: "用AI为Typecho博客文章生成摘要吧！",
-        url: "https://idealclover.top/archives/636",
-        time: "2023.12.03",
-      },
-      {
-        title: "Caritas APP 2.0 版本发布",
-        url: "https://idealclover.top/archives/635",
-        time: "2022.08.21",
-      },
-      {
-        title: "友链屋 - 建个网站订阅友链们的更新～",
-        url: "https://idealclover.top/archives/634",
-        time: "2022.05.22",
-      }
-    ],
-  },
-  {
-    title: "生活",
-    url: "https://idealclover.top/category/life",
-    articles: [
-      {
-        title: "再赴一场盛夏：写给下一个五年",
-        url: "https://idealclover.top/archives/644",
-        time: "2025.08.31",
-      },
-      {
-        title: "2024 Q3 总结：灰烬里重新生根发芽",
-        url: "https://idealclover.top/archives/640",
-        time: "2024.11.09",
-      },
-      {
-        title: "2021-2023年终总结：跃入人海，潮起潮落",
-        url: "https://idealclover.top/archives/637",
-        time: "2024.02.23",
-      },
-      {
-        title: "再见了，大小周",
-        url: "https://idealclover.top/archives/629",
-        time: "2021.11.07",
-      },
-      {
-        title: "2020 年年终总结：致即将 22 岁的自己",
-        url: "https://idealclover.top/archives/627",
-        time: "2021.05.01",
-      }
-    ],
-  },
-  {
-    title: "随想",
-    url: "https://idealclover.top/category/thinking",
-    articles: [
-      {
-        title: "所以我放弃了双持—兼谈折叠屏手机使用体验",
-        url: "https://idealclover.top/archives/642",
-        time: "2024.12.31",
-      },
-      {
-        title: "应急储备包制作经验分享：打造个人应急 “救生圈”",
-        url: "https://idealclover.top/archives/639",
-        time: "2024.09.30",
-      },
-      {
-        title: "关于《后浪》，随便写点什么",
-        url: "https://idealclover.top/archives/621",
-        time: "2020.05.04",
-      },
-      {
-        title: "我看好 Fluent Design，但不看好微软",
-        url: "https://idealclover.top/archives/615",
-        time: "2020.04.12",
-      },
-      {
-        title: "身份、立场与偏见：为什么互联网愈发“水火不容”",
-        url: "https://idealclover.top/archives/614",
-        time: "2020.04.03",
-      },
-    ],
-  },
+import type { ArticleCategory } from './types';
 
+export const articleCategories: ArticleCategory[] = [
   {
-    title: "测评",
-    url: "https://idealclover.top/category/testing",
-    articles: [
+    "title": "最新",
+    "url": "https://blog.xuezero.com/archives",
+    "articles": [
       {
-        title: "所以我放弃了双持—兼谈折叠屏手机使用体验",
-        url: "https://idealclover.top/archives/642",
-        time: "2024.12.31",
+        "title": "Halo PDF 插件",
+        "url": "https://blog.xuezero.com/archives/CogvtHeB",
+        "time": "2026/05/06"
       },
       {
-        title: "Pico Neo 3 开箱体验 - XR 或许已经走出了最低谷",
-        url: "https://idealclover.top/archives/630",
-        time: "2022.02.04",
+        "title": "谈谈我不喜欢的博客网站",
+        "url": "https://blog.xuezero.com/archives/NYdpOLBJ",
+        "time": "2026/04/07"
       },
       {
-        title: "iPhone SE 2020 测评：我用爽了，但也许你并不需要",
-        url: "https://idealclover.top/archives/620",
-        time: "2020.04.30",
+        "title": "Halo 附件上传助手",
+        "url": "https://blog.xuezero.com/archives/dcGsxMcn",
+        "time": "2026/04/01"
       },
       {
-        title: "9102 年都快过了，这 iPhone SE 还香吗？",
-        url: "https://idealclover.top/archives/595",
-        time: "2019.12.26",
+        "title": "Halo 扩展数据管理工具",
+        "url": "https://blog.xuezero.com/archives/QFOFKDLR",
+        "time": "2026/03/06"
       },
       {
-        title: "开箱一份字节跳动校招生大礼包！",
-        url: "https://idealclover.top/archives/594",
-        time: "2019.12.19",
+        "title": "Git 操作之压缩提交记录",
+        "url": "https://blog.xuezero.com/archives/qoGAU8z3",
+        "time": "2026/02/26"
       }
-    ],
+    ]
   },
+  {
+    "title": "测试",
+    "url": "https://blog.xuezero.com/categories/test",
+    "articles": [
+      {
+        "title": "Shiki 代码行功能",
+        "url": "https://blog.xuezero.com/archives/QEci827H",
+        "time": "2026/02/07"
+      },
+      {
+        "title": "PWA：让 Web 应用拥有原生 App 体验的关键技术",
+        "url": "https://blog.xuezero.com/archives/9KIepALR",
+        "time": "2026/01/11"
+      },
+      {
+        "title": "文章阅读限制",
+        "url": "https://blog.xuezero.com/archives/k1TkAOkn",
+        "time": "2025/12/27"
+      },
+      {
+        "title": "使用阿里云 OSS SDK 上传文件（Java 版）",
+        "url": "https://blog.xuezero.com/archives/650GA3IF",
+        "time": "2025/08/28"
+      },
+      {
+        "title": "投稿者测试",
+        "url": "https://blog.xuezero.com/archives/IjPIh1zh",
+        "time": "2025/05/29"
+      }
+    ]
+  },
+  {
+    "title": "记录",
+    "url": "https://blog.xuezero.com/categories/record",
+    "articles": [
+      {
+        "title": "Halo PDF 插件",
+        "url": "https://blog.xuezero.com/archives/CogvtHeB",
+        "time": "2026/05/06"
+      },
+      {
+        "title": "谈谈我不喜欢的博客网站",
+        "url": "https://blog.xuezero.com/archives/NYdpOLBJ",
+        "time": "2026/04/07"
+      },
+      {
+        "title": "Halo 附件上传助手",
+        "url": "https://blog.xuezero.com/archives/dcGsxMcn",
+        "time": "2026/04/01"
+      },
+      {
+        "title": "Halo 扩展数据管理工具",
+        "url": "https://blog.xuezero.com/archives/QFOFKDLR",
+        "time": "2026/03/06"
+      },
+      {
+        "title": "Git 操作之压缩提交记录",
+        "url": "https://blog.xuezero.com/archives/qoGAU8z3",
+        "time": "2026/02/26"
+      }
+    ]
+  },
+  {
+    "title": "漫画",
+    "url": "https://blog.xuezero.com/categories/comic",
+    "articles": [
+      {
+        "title": "少女终结的幻想乡",
+        "url": "https://blog.xuezero.com/archives/nVmLgheT",
+        "time": "2025/08/09"
+      },
+      {
+        "title": "PULCHRE BENE RECTE!",
+        "url": "https://blog.xuezero.com/archives/kSjopCp2",
+        "time": "2024/07/16"
+      }
+    ]
+  },
+  {
+    "title": "视频",
+    "url": "https://blog.xuezero.com/categories/video",
+    "articles": [
+      {
+        "title": "《崩坏：星穹铁道》千星纪游PV：「此刻，在同一片星空下」",
+        "url": "https://blog.xuezero.com/archives/BV16s421u7NP",
+        "time": "2024/06/14"
+      },
+      {
+        "title": "《崩坏：星穹铁道》动画短片：「格拉默的余烬」",
+        "url": "https://blog.xuezero.com/archives/BV1us421u7sp",
+        "time": "2024/06/14"
+      },
+      {
+        "title": "由比滨结衣",
+        "url": "https://blog.xuezero.com/archives/BV18Z4y1V7ZJ",
+        "time": "2024/05/14"
+      }
+    ]
+  },
+  {
+    "title": "游戏",
+    "url": "https://blog.xuezero.com/categories/game",
+    "articles": [
+      {
+        "title": "和平精英异地/异设备人脸",
+        "url": "https://blog.xuezero.com/archives/flToaoxL",
+        "time": "2024/07/14"
+      }
+    ]
+  },
+  {
+    "title": "资讯",
+    "url": "https://blog.xuezero.com/categories/information",
+    "articles": [
+      {
+        "title": "角色介绍 | 流萤",
+        "url": "https://blog.xuezero.com/archives/53697072",
+        "time": "2024/06/11"
+      },
+      {
+        "title": "天外卫星通信 | 流萤",
+        "url": "https://blog.xuezero.com/archives/51890938",
+        "time": "2024/04/23"
+      }
+    ]
+  },
+  {
+    "title": "总结",
+    "url": "https://blog.xuezero.com/categories/summarize",
+    "articles": [
+      {
+        "title": "《魔法少女小圆剧场版 [前篇] 起始的物语》",
+        "url": "https://blog.xuezero.com/archives/HQagWR7R",
+        "time": "2025/02/12"
+      },
+      {
+        "title": "DCDN宕机修复",
+        "url": "https://blog.xuezero.com/archives/Zw9Aidk5",
+        "time": "2024/08/03"
+      },
+      {
+        "title": "销户经历",
+        "url": "https://blog.xuezero.com/archives/9GmEYZJ3",
+        "time": "2024/05/14"
+      }
+    ]
+  },
+  {
+    "title": "COS",
+    "url": "https://blog.xuezero.com/categories/cosplay",
+    "articles": [
+      {
+        "title": "甘露寺蜜璃",
+        "url": "https://blog.xuezero.com/archives/T8lyhr5Q",
+        "time": "2025/12/14"
+      },
+      {
+        "title": "南小鸟",
+        "url": "https://blog.xuezero.com/archives/5rOQkS55",
+        "time": "2024/08/25"
+      },
+      {
+        "title": "八重樱和服",
+        "url": "https://blog.xuezero.com/archives/Gk3YynZo",
+        "time": "2024/07/28"
+      },
+      {
+        "title": "芭芭拉",
+        "url": "https://blog.xuezero.com/archives/EjQSHj6k",
+        "time": "2024/07/28"
+      }
+    ]
+  },
+  {
+    "title": "GAL",
+    "url": "https://blog.xuezero.com/categories/galgame",
+    "articles": [
+      {
+        "title": "三色绘恋",
+        "url": "https://blog.xuezero.com/archives/nSJMZH7d",
+        "time": "2024/09/24"
+      },
+      {
+        "title": "我的青春恋爱物语在游戏中果然也有问题",
+        "url": "https://blog.xuezero.com/archives/UYfynvIg",
+        "time": "2024/04/16"
+      },
+      {
+        "title": "苍之彼方的四重奏",
+        "url": "https://blog.xuezero.com/archives/rq142YqI",
+        "time": "2024/07/08"
+      },
+      {
+        "title": "梦与现实的联理结",
+        "url": "https://blog.xuezero.com/archives/P283bbPm",
+        "time": "2024/05/14"
+      },
+      {
+        "title": "少女理论及其周边 -Ecole de Paris-",
+        "url": "https://blog.xuezero.com/archives/Au6RMN8B",
+        "time": "2024/04/18"
+      }
+    ]
+  }
 ];
+
+export default articleCategories;

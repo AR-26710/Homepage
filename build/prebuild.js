@@ -6,13 +6,25 @@ import config from "../astro.config.mjs";
 async function main() {
   const mode = config.siteMode;
 
-  // 读取 inline.js 文件
+  // 读取 inline.js 文件（如果存在）
   const inlinePath = path.resolve("./src/inlines/inline.js");
-  let inlineContent = fs.readFileSync(inlinePath, "utf8");
+  let inlineContent = "";
+
+  if (fs.existsSync(inlinePath)) {
+    inlineContent = fs.readFileSync(inlinePath, "utf8");
+  }
 
   if (mode == "top") {
     const swPath = path.resolve("./src/inlines/sw.js");
-    inlineContent += fs.readFileSync(swPath, "utf8");
+    if (fs.existsSync(swPath)) {
+      inlineContent += fs.readFileSync(swPath, "utf8");
+    }
+  }
+
+  // 如果没有内联内容，跳过处理
+  if (!inlineContent.trim()) {
+    console.log("No inline script content, skipping.");
+    return;
   }
 
   // 使用 terser 进行 minify
@@ -31,13 +43,12 @@ async function main() {
         hoist_vars: true,
         if_return: true,
         join_vars: true,
-        // cascade: true,
         side_effects: true,
         warnings: false,
       },
-      mangle: false, // 不混淆变量名
+      mangle: false,
       output: {
-        beautify: false, // 输出为一行
+        beautify: false,
       },
     });
     return result.code;

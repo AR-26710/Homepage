@@ -1,0 +1,37 @@
+---
+import type { Card4x2Props } from '../data/types';
+
+interface Props {
+  info: Card4x2Props;
+}
+
+const { info } = Astro.props;
+---
+
+<div
+  class:list={[
+    "card max-lg:card-compact rounded-2xl shadow-xl w-full md:h-[10.5rem] lg:w-[26rem] lg:h-[12rem] mb-8",
+    info.bgStyle,
+    info.textStyle,
+  ]}
+>
+  <div class="card-body rounded-2xl hover:glass">
+    <h2 class="card-title line-clamp-1">{info.title}</h2>
+    <p class="line-clamp-2">
+      {info.desc}<br />{info.subdesc}<br />{info.thirddesc}
+    </p>
+    <div class="card-actions justify-end">
+      <a href={info.url} target="_blank">
+        <button
+          class:list={[
+            "btn btn-sm rounded-xl border-0",
+            info.btnStyle,
+            info.btnTextStyle,
+          ]}
+        >
+          {info.btnText}
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
