@@ -43,7 +43,12 @@ async function fetchHaloPosts(apiUrl, articlesPerCategory, urlConfig) {
     const article = {
       title: post.spec.title,
       url: articleUrl,
-      time: post.spec.publishTime ? new Date(post.spec.publishTime).toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' }) : ''
+      time: post.spec.publishTime ? new Intl.DateTimeFormat('zh-CN', {
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).format(new Date(post.spec.publishTime)) : ''
     };
 
     categoriesMap.get('最新')?.articles.push(article);
