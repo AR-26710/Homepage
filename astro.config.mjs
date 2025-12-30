@@ -19,7 +19,7 @@ export default defineConfig({
     plugins: [
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicons/*.png', 'favicons/*.ico', 'fonts/*.ttf', 'icons/*.jpg', 'icons/*.png'],
+        includeAssets: ['*.html', 'favicons/*.png', 'favicons/*.ico', 'fonts/*.ttf', 'icons/*.jpg', 'icons/*.png'],
         manifest: {
           name: "呀哈喽",
           short_name: "呀哈喽",
@@ -43,6 +43,10 @@ export default defineConfig({
         workbox: {
           maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
           globPatterns: ['**/*.{js,css,html,ico,png,jpg,jpeg,svg,woff,woff2,ttf,eot}'],
+          navigateFallback: 'index.html',
+          additionalManifestEntries: [
+            { url: 'index.html', revision: null }
+          ],
           runtimeCaching: [
             {
               urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
