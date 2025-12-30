@@ -10,6 +10,7 @@ interface ConfigData {
   beian?: string;
   cardVisibility?: string;
   favicons?: string;
+  pwa?: string;
 }
 
 export async function GET() {
@@ -22,6 +23,7 @@ export async function GET() {
     const beianPath = join(parentDir, 'src', 'data', 'beian.ts');
     const cardVisibilityPath = join(parentDir, 'src', 'data', 'modules', 'cardVisibility.ts');
     const faviconsPath = join(parentDir, 'src', 'data', 'favicons.ts');
+    const pwaPath = join(parentDir, 'astro.config.mjs');
 
     const data: ConfigData = {};
 
@@ -58,6 +60,10 @@ export async function GET() {
 
     if (existsSync(faviconsPath)) {
       data.favicons = readFileSync(faviconsPath, 'utf-8');
+    }
+
+    if (existsSync(pwaPath)) {
+      data.pwa = readFileSync(pwaPath, 'utf-8');
     }
 
     return NextResponse.json(data);

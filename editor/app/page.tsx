@@ -11,6 +11,7 @@ interface ConfigData {
   beian?: string;
   cardVisibility?: string;
   favicons?: string;
+  pwa?: string;
 }
 
 export default function Home() {
@@ -80,6 +81,7 @@ export default function Home() {
     { id: 'beian', label: '备案信息' },
     { id: 'cardVisibility', label: '卡片显示' },
     { id: 'favicons', label: '图标配置' },
+    { id: 'pwa', label: 'PWA 配置' },
   ];
 
   if (loading) {

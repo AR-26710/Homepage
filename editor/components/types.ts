@@ -6,6 +6,7 @@ export interface ConfigData {
   beian?: string;
   cardVisibility?: string;
   favicons?: string;
+  pwa?: string;
 }
 
 export interface ConfigEditorProps {

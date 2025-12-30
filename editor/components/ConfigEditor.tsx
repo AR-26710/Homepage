@@ -9,6 +9,7 @@ import SeoEditor from './SeoEditor';
 import BeianEditor from './BeianEditor';
 import CardVisibilityEditor from './CardVisibilityEditor';
 import FaviconsEditor from './FaviconsEditor';
+import PwaEditor from './PwaEditor';
 
 export default function ConfigEditor({ activeTab, configData, onChange }: ConfigEditorProps) {
   const [activeModule, setActiveModule] = useState<string>('basic');
@@ -55,6 +56,12 @@ export default function ConfigEditor({ activeTab, configData, onChange }: Config
       )}
       {activeTab === 'favicons' && (
         <FaviconsEditor
+          configData={configData}
+          onChange={onChange}
+        />
+      )}
+      {activeTab === 'pwa' && (
+        <PwaEditor
           configData={configData}
           onChange={onChange}
         />

@@ -5,7 +5,7 @@ import { join } from 'path';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { modules, articles, update, seo, beian, cardVisibility, favicons } = body;
+    const { modules, articles, update, seo, beian, cardVisibility, favicons, pwa } = body;
 
     const parentDir = join(process.cwd(), '..');
     const modulesPath = join(parentDir, 'src', 'data', 'modules');
@@ -15,6 +15,7 @@ export async function POST(request: Request) {
     const beianPath = join(parentDir, 'src', 'data', 'beian.ts');
     const cardVisibilityPath = join(parentDir, 'src', 'data', 'modules', 'cardVisibility.ts');
     const faviconsPath = join(parentDir, 'src', 'data', 'favicons.ts');
+    const pwaPath = join(parentDir, 'astro.config.mjs');
 
     if (modules) {
       for (const [moduleName, content] of Object.entries(modules)) {
@@ -45,6 +46,10 @@ export async function POST(request: Request) {
 
     if (favicons) {
       writeFileSync(faviconsPath, favicons as string, 'utf-8');
+    }
+
+    if (pwa) {
+      writeFileSync(pwaPath, pwa as string, 'utf-8');
     }
 
     return NextResponse.json({ success: true });
