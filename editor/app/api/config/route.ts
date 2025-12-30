@@ -9,6 +9,7 @@ interface ConfigData {
   seo?: string;
   beian?: string;
   cardVisibility?: string;
+  favicons?: string;
 }
 
 export async function GET() {
@@ -20,6 +21,7 @@ export async function GET() {
     const seoPath = join(parentDir, 'src', 'data', 'seo.ts');
     const beianPath = join(parentDir, 'src', 'data', 'beian.ts');
     const cardVisibilityPath = join(parentDir, 'src', 'data', 'modules', 'cardVisibility.ts');
+    const faviconsPath = join(parentDir, 'src', 'data', 'favicons.ts');
 
     const data: ConfigData = {};
 
@@ -52,6 +54,10 @@ export async function GET() {
 
     if (existsSync(cardVisibilityPath)) {
       data.cardVisibility = readFileSync(cardVisibilityPath, 'utf-8');
+    }
+
+    if (existsSync(faviconsPath)) {
+      data.favicons = readFileSync(faviconsPath, 'utf-8');
     }
 
     return NextResponse.json(data);

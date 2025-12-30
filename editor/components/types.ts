@@ -5,6 +5,7 @@ export interface ConfigData {
   seo?: string;
   beian?: string;
   cardVisibility?: string;
+  favicons?: string;
 }
 
 export interface ConfigEditorProps {

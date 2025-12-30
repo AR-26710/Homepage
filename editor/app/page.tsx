@@ -10,6 +10,7 @@ interface ConfigData {
   seo?: string;
   beian?: string;
   cardVisibility?: string;
+  favicons?: string;
 }
 
 export default function Home() {
@@ -78,6 +79,7 @@ export default function Home() {
     { id: 'seo', label: 'SEO 配置' },
     { id: 'beian', label: '备案信息' },
     { id: 'cardVisibility', label: '卡片显示' },
+    { id: 'favicons', label: '图标配置' },
   ];
 
   if (loading) {
