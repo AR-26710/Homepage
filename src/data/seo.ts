@@ -6,5 +6,6 @@ export default {
   ogDescription: '呀哈喽的个人名片👋',
   ogUrl: 'https://houxiongxiong.com',
   ogImage: 'https://oss.houxiongxiong.icu/home/home-bg.jpg',
+  ogSiteName: '呀哈喽',
   twitterCard: 'summary_large_image',
 };
