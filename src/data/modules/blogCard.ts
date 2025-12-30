@@ -6,7 +6,7 @@ export default {
     url: "https://blog.houxiongxiong.icu/archives",
     btnText: "去逛逛 · 历史文章",
     bgStyle:
-      "bg-[#2C3E50] shadow-[#2C3E50]/75 hover:bg-[#2C3E50]/75 hover:shadow-[#2C3E50]",
+      "bg-[url('https://oss.houxiongxiong.icu/home/home-blog-bg.jpg')] bg-cover bg-center shadow-[#2C3E50]/75 hover:bg-[#2C3E50]/75 hover:shadow-[#2C3E50]",
     textStyle: "text-white",
     btnStyle: "bg-[#162D3B]",
     btnTextStyle: "text-white",

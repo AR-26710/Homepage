@@ -1,7 +1,7 @@
 export default {
   titleCard: {
     title: "呀哈喽",
-    desc: "由比滨结衣",
+    desc: "比企谷八幡",
     subdesc: "原来你是我最想留住的幸运",
     url: "https://www.bilibili.com/video/BV18Z4y1V7ZJ/",
     bgStyle:
