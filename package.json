@@ -12,7 +12,8 @@
     "astro": "astro",
     "prebuild": "node build/prebuild",
     "fontmin": "node build/fontmin",
-    "postbuild": "npm run fontmin && node build/postbuild"
+    "postbuild": "npm run fontmin && node build/postbuild",
+    "sync:halo": "node scripts/sync-halo-articles.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
