@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { moduleLabels } from './types';
 
 interface ModuleSelectorProps {
@@ -6,6 +7,20 @@ interface ModuleSelectorProps {
 }
 
 export default function ModuleSelector({ activeModule, onChange }: ModuleSelectorProps) {
+  const [localActiveModule, setLocalActiveModule] = useState(() => {
+    const savedModule = localStorage.getItem('selectedModule');
+    return savedModule || activeModule;
+  });
+
+  useEffect(() => {
+    onChange(localActiveModule);
+  }, [localActiveModule, onChange]);
+
+  const handleChange = (value: string) => {
+    setLocalActiveModule(value);
+    localStorage.setItem('selectedModule', value);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
       <div className="flex items-center gap-3 mb-4">
@@ -21,8 +36,8 @@ export default function ModuleSelector({ activeModule, onChange }: ModuleSelecto
       </div>
       <div className="relative">
         <select
-          value={activeModule}
-          onChange={(e) => onChange(e.target.value)}
+          value={localActiveModule}
+          onChange={(e) => handleChange(e.target.value)}
           className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none cursor-pointer hover:border-gray-300"
         >
           {Object.entries(moduleLabels).map(([key, label]) => (
