@@ -7,7 +7,18 @@ import Card_8x1 from "./card_8x1.astro";
 import Articles_List from "./articles_list.astro";
 import info from "../data/info";
 import beian from "../data/beian";
-// const showCV = false;
+
+const cardOrder = info.cardVisibility.order || [
+  'showTitleCard',
+  'showBlogCard',
+  'showPrimaryCards',
+  'showArticlesSection',
+  'showProjectsSection',
+  'showDiarySection',
+  'showMusicSection',
+  'showPrimaryCardsMobile',
+  'showContactSection',
+];
 ---
 
 <div class="container m-auto lg:max-xl:w-min main">
@@ -33,138 +44,146 @@ import beian from "../data/beian";
     <main>
       <div class="pt-10 xl:pt-20"></div>
       <div class="grid grid-cols-4 gap-x-4 lg:gap-x-8 lg:w-[54rem]">
-        {info.cardVisibility.showTitleCard && (
-          <div class="col-span-4 md:col-span-2">
-            <Card_4x2 info={info.titleCard} />
-          </div>
-        )}
-        {info.cardVisibility.showBlogCard && (
-          <div class="col-span-4 md:col-span-2">
-            <Card_4x2 info={info.blogCard} />
-          </div>
-        )}
-
-        {info.cardVisibility.showPrimaryCards && (
-          <div class="hidden md:block col-span-2">
-            <Card_2x1 info={info.primaryCards[0]} />
-            <Card_2x1 info={info.primaryCards[1]} />
-            <Card_2x1 info={info.primaryCards[2]} />
-            <Card_2x1 info={info.primaryCards[3]} />
-          </div>
-        )}
-
-        <!-- 文章列表 -->
-        {info.cardVisibility.showArticlesSection && (
-          <div class="col-span-4">
-            <Card_8x1 info={info.sectionTitles[0]} />
-            <Articles_List />
-          </div>
-        )}
-
-        <!-- 个人项目 -->
-        {info.cardVisibility.showProjectsSection && (
-          <>
-            <div class="col-span-4">
-              <Card_8x1 info={info.sectionTitles[1]} />
-            </div>
-            <div class="col-span-4 md:col-span-2">
-              <Card_4x2 info={info.projectCardStart} />
-            </div>
-            {
-              info.projectCards.map((card) => (
-                <div class="col-span-4 sm:col-span-2 md:col-span-1">
-                  <Card_2x2 info={card} />
+        {cardOrder.map((key) => {
+          if (key === 'showTitleCard' && info.cardVisibility.showTitleCard) {
+            return (
+              <div class="col-span-4 md:col-span-2">
+                <Card_4x2 info={info.titleCard} />
+              </div>
+            );
+          }
+          if (key === 'showBlogCard' && info.cardVisibility.showBlogCard) {
+            return (
+              <div class="col-span-4 md:col-span-2">
+                <Card_4x2 info={info.blogCard} />
+              </div>
+            );
+          }
+          if (key === 'showPrimaryCards' && info.cardVisibility.showPrimaryCards) {
+            return (
+              <div class="hidden md:block col-span-2">
+                <Card_2x1 info={info.primaryCards[0]} />
+                <Card_2x1 info={info.primaryCards[1]} />
+                <Card_2x1 info={info.primaryCards[2]} />
+                <Card_2x1 info={info.primaryCards[3]} />
+              </div>
+            );
+          }
+          if (key === 'showArticlesSection' && info.cardVisibility.showArticlesSection) {
+            return (
+              <div class="col-span-4">
+                <Card_8x1 info={info.sectionTitles[0]} />
+                <Articles_List />
+              </div>
+            );
+          }
+          if (key === 'showProjectsSection' && info.cardVisibility.showProjectsSection) {
+            return (
+              <>
+                <div class="col-span-4">
+                  <Card_8x1 info={info.sectionTitles[1]} />
                 </div>
-              ))
-            }
-            <div class="col-span-4 md:col-span-2">
-              <Card_4x2 info={info.projectCardEnd} />
-            </div>
-          </>
-        )}
-
-        <!-- 生活日记 -->
-        {info.cardVisibility.showDiarySection && (
-          <>
-            <div class="col-span-4">
-              <Card_8x1 info={info.sectionTitles[2]} />
-            </div>
-            <div class="col-span-4 overflow-x-auto scrollbar-hide">
-              <div
-                class="flex flex-nowrap gap-4 pb-4 md:hidden"
-                style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
-              >
+                <div class="col-span-4 md:col-span-2">
+                  <Card_4x2 info={info.projectCardStart} />
+                </div>
                 {
-                  info.diaryCards.map((card) => (
-                    <div
-                      class="flex-none w-[55%] scroll-snap-align-start"
-                      style="scroll-snap-align: start;"
-                    >
-                      <Card_2x3 info={card} />
+                  info.projectCards.map((card) => (
+                    <div class="col-span-4 sm:col-span-2 md:col-span-1">
+                      <Card_2x2 info={card} />
                     </div>
                   ))
                 }
-              </div>
-              <div class="hidden md:grid md:grid-cols-4 gap-x-4 lg:gap-x-8">
+                <div class="col-span-4 md:col-span-2">
+                  <Card_4x2 info={info.projectCardEnd} />
+                </div>
+              </>
+            );
+          }
+          if (key === 'showDiarySection' && info.cardVisibility.showDiarySection) {
+            return (
+              <>
+                <div class="col-span-4">
+                  <Card_8x1 info={info.sectionTitles[2]} />
+                </div>
+                <div class="col-span-4 overflow-x-auto scrollbar-hide">
+                  <div
+                    class="flex flex-nowrap gap-4 pb-4 md:hidden"
+                    style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
+                  >
+                    {
+                      info.diaryCards.map((card) => (
+                        <div
+                          class="flex-none w-[55%] scroll-snap-align-start"
+                          style="scroll-snap-align: start;"
+                        >
+                          <Card_2x3 info={card} />
+                        </div>
+                      ))
+                    }
+                  </div>
+                  <div class="hidden md:grid md:grid-cols-4 gap-x-4 lg:gap-x-8">
+                    {
+                      info.diaryCards.map((card) => (
+                        <div class="col-span-1">
+                          <Card_2x3 info={card} />
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div>
+              </>
+            );
+          }
+          if (key === 'showMusicSection' && info.cardVisibility.showMusicSection) {
+            return (
+              <>
+                <div class="col-span-4">
+                  <Card_8x1 info={info.sectionTitles[3]} />
+                </div>
                 {
-                  info.diaryCards.map((card) => (
-                    <div class="col-span-1">
-                      <Card_2x3 info={card} />
+                  info.musicCards.map((card) => (
+                    <div class="col-span-4 md:col-span-2">
+                      <Card_4x2 info={card} />
                     </div>
                   ))
                 }
-              </div>
-            </div>
-          </>
-        )}
-
-        <!-- 音乐创作 -->
-        {info.cardVisibility.showMusicSection && (
-          <>
-            <div class="col-span-4">
-              <Card_8x1 info={info.sectionTitles[3]} />
-            </div>
-            {
-              info.musicCards.map((card) => (
-                <div class="col-span-4 md:col-span-2">
-                  <Card_4x2 info={card} />
+              </>
+            );
+          }
+          if (key === 'showPrimaryCardsMobile' && info.cardVisibility.showPrimaryCardsMobile) {
+            return (
+              <>
+                <div class="md:hidden col-span-4">
+                  <Card_8x1 info={info.sectionTitles[4]} />
                 </div>
-              ))
-            }
-          </>
-        )}
-
-        <!-- 关注翠翠 -->
-        {info.cardVisibility.showPrimaryCardsMobile && (
-          <>
-            <div class="md:hidden col-span-4">
-              <Card_8x1 info={info.sectionTitles[4]} />
-            </div>
-            {
-              info.primaryCards.map((card) => (
-                <div class="md:hidden sm:col-span-2 col-span-4">
-                  <Card_2x1 info={card} />
+                {
+                  info.primaryCards.map((card) => (
+                    <div class="md:hidden sm:col-span-2 col-span-4">
+                      <Card_2x1 info={card} />
+                    </div>
+                  ))
+                }
+              </>
+            );
+          }
+          if (key === 'showContactSection' && info.cardVisibility.showContactSection) {
+            return (
+              <>
+                <div class="col-span-4">
+                  <Card_8x1 info={info.sectionTitles[5]} />
                 </div>
-              ))
-            }
-          </>
-        )}
-
-        <!-- 联系方式 -->
-        {info.cardVisibility.showContactSection && (
-          <>
-            <div class="col-span-4">
-              <Card_8x1 info={info.sectionTitles[5]} />
-            </div>
-            {
-              info.teleCards.map((card) => (
-                <div class="col-span-4 md:col-span-2">
-                  <Card_2x1 info={card} />
-                </div>
-              ))
-            }
-          </>
-        )}
+                {
+                  info.teleCards.map((card) => (
+                    <div class="col-span-4 md:col-span-2">
+                      <Card_2x1 info={card} />
+                    </div>
+                  ))
+                }
+              </>
+            );
+          }
+          return null;
+        })}
       </div>
 
       <footer class="text-center py-10">

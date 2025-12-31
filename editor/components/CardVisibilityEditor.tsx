@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { ConfigData } from './types';
 
 interface CardVisibilityEditorProps {
@@ -18,6 +19,7 @@ interface VisibilityConfig {
   showMusicSection: boolean;
   showPrimaryCardsMobile: boolean;
   showContactSection: boolean;
+  order?: string[];
 }
 
 const cardOptions = [
@@ -33,6 +35,37 @@ const cardOptions = [
 ];
 
 export default function CardVisibilityEditor({ configData, onChange }: CardVisibilityEditorProps) {
+  const defaultOrderedOptions = useMemo(() => {
+    if (configData?.cardVisibility) {
+      try {
+        const content = configData.cardVisibility;
+        const objectMatch = content.match(/export\s+default\s+({[\s\S]*})/);
+        if (objectMatch && objectMatch[1]) {
+          const parsed = new Function(`return ${objectMatch[1]}`)();
+          
+          if (parsed.order && Array.isArray(parsed.order)) {
+            const orderedOptions = parsed.order
+              .map((key: string) => cardOptions.find(opt => opt.key === key))
+              .filter((opt: typeof cardOptions[number] | undefined): opt is typeof cardOptions[number] => opt !== undefined);
+            
+            const remainingOptions = cardOptions.filter(opt => !parsed.order.includes(opt.key));
+            return [...orderedOptions, ...remainingOptions];
+          }
+        }
+      } catch {
+        console.error('无法解析卡片可见性配置。');
+      }
+    }
+    
+    return cardOptions;
+  }, [configData?.cardVisibility]);
+
+  const [orderedCardOptions, setOrderedCardOptions] = useState(defaultOrderedOptions);
+
+  useEffect(() => {
+    setOrderedCardOptions(defaultOrderedOptions);
+  }, [defaultOrderedOptions]);
+
   const visibilityConfig = useMemo(() => {
     const defaultConfig: VisibilityConfig = {
       showTitleCard: true,
@@ -44,6 +77,7 @@ export default function CardVisibilityEditor({ configData, onChange }: CardVisib
       showMusicSection: true,
       showPrimaryCardsMobile: true,
       showContactSection: true,
+      order: cardOptions.map(opt => opt.key),
     };
 
     if (configData?.cardVisibility) {
@@ -64,9 +98,38 @@ export default function CardVisibilityEditor({ configData, onChange }: CardVisib
 
   const handleToggle = (key: keyof VisibilityConfig) => {
     const newConfig = { ...visibilityConfig, [key]: !visibilityConfig[key] };
-    const configString = `export default {\n${Object.entries(newConfig)
-      .map(([k, v]) => `  ${k}: ${v},`)
-      .join('\n')}\n};`;
+    
+    const entries = Object.entries(newConfig).map(([k, v]) => {
+      if (k === 'order') {
+        return `  ${k}: [${(v as string[]).map((item: string) => `'${item}'`).join(', ')}],`;
+      }
+      return `  ${k}: ${v},`;
+    });
+    
+    const configString = `export default {\n${entries.join('\n')}\n};`;
+    onChange('cardVisibility', configString);
+  };
+
+  const handleDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+
+    const items = Array.from(orderedCardOptions);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setOrderedCardOptions(items);
+
+    const newOrder = items.map(opt => opt.key);
+    const newConfig = { ...visibilityConfig, order: newOrder };
+    
+    const entries = Object.entries(newConfig).map(([k, v]) => {
+      if (k === 'order') {
+        return `  ${k}: [${(v as string[]).map((item: string) => `'${item}'`).join(', ')}],`;
+      }
+      return `  ${k}: ${v},`;
+    });
+    
+    const configString = `export default {\n${entries.join('\n')}\n};`;
     onChange('cardVisibility', configString);
   };
 
@@ -90,35 +153,59 @@ export default function CardVisibilityEditor({ configData, onChange }: CardVisib
       </div>
 
       <div className="bg-white border border-gray-200 rounded-xl p-6">
-        <div className="grid gap-4">
-          {cardOptions.map((option) => (
-            <div
-              key={option.key}
-              className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              <div className="flex-1">
-                <div className="font-medium text-gray-900">{option.label}</div>
-                <div className="text-sm text-gray-500">{option.description}</div>
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <Droppable droppableId="card-list">
+            {(provided) => (
+              <div {...provided.droppableProps} ref={provided.innerRef} className="grid gap-4">
+                {orderedCardOptions.map((option, index) => (
+                  <Draggable key={option.key} draggableId={option.key} index={index}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        className={`flex items-center justify-between p-4 rounded-lg transition-colors ${
+                          snapshot.isDragging ? 'bg-blue-50 shadow-lg' : 'bg-gray-50 hover:bg-gray-100'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3 flex-1">
+                          <div
+                            {...provided.dragHandleProps}
+                            className="cursor-grab active:cursor-grabbing text-gray-400 hover:text-gray-600"
+                          >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h16M4 16h16" />
+                            </svg>
+                          </div>
+                          <div className="flex-1">
+                            <div className="font-medium text-gray-900">{option.label}</div>
+                            <div className="text-sm text-gray-500">{option.description}</div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleToggle(option.key as keyof VisibilityConfig)}
+                          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                            visibilityConfig[option.key as keyof VisibilityConfig]
+                              ? 'bg-blue-600'
+                              : 'bg-gray-300'
+                          }`}
+                        >
+                          <span
+                            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                              visibilityConfig[option.key as keyof VisibilityConfig]
+                                ? 'translate-x-6'
+                                : 'translate-x-1'
+                            }`}
+                          />
+                        </button>
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
               </div>
-              <button
-                onClick={() => handleToggle(option.key as keyof VisibilityConfig)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  visibilityConfig[option.key as keyof VisibilityConfig]
-                    ? 'bg-blue-600'
-                    : 'bg-gray-300'
-                }`}
-              >
-                <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                    visibilityConfig[option.key as keyof VisibilityConfig]
-                      ? 'translate-x-6'
-                      : 'translate-x-1'
-                  }`}
-                />
-              </button>
-            </div>
-          ))}
-        </div>
+            )}
+          </Droppable>
+        </DragDropContext>
       </div>
     </div>
   );

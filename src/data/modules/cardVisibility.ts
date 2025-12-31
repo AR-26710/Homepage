@@ -8,4 +8,5 @@ export default {
   showMusicSection: false,
   showPrimaryCardsMobile: false,
   showContactSection: true,
+  order: ['showBlogCard', 'showTitleCard', 'showContactSection', 'showArticlesSection', 'showPrimaryCards', 'showProjectsSection', 'showDiarySection', 'showMusicSection', 'showPrimaryCardsMobile'],
 };
