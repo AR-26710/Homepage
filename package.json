@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "pnpm run prebuild && astro dev",
-    "dev:all": "concurrently \"pnpm run dev\" \"cd editor && pnpm run dev\"",
+    "dev:all": "concurrently -n astro,editor -c blue,magenta \"pnpm run dev\" \"cd editor && pnpm run dev\"",
     "start": "pnpm run prebuild && astro dev",
-    "start:all": "concurrently \"pnpm run start\" \"cd editor && pnpm run start\"",
+    "start:all": "concurrently -n astro,editor -c blue,magenta \"pnpm run start\" \"cd editor && pnpm run start\"",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
