@@ -1,10 +1,7 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import { VitePWA } from "vite-plugin-pwa";
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
 
   // dev mode
   // site: 'http://localhost:4321',
