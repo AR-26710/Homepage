@@ -17,9 +17,9 @@
     "sync:bilibili": "node scripts/updateBilibiliViews.js"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.11.5",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.18.1",
     "daisyui": "^2.6.0",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.5.3"
@@ -29,5 +29,13 @@
     "fontmin": "^1.1.0",
     "terser": "^5.31.1",
     "vite-plugin-pwa": "^1.2.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "tar": ">=7.5.8",
+      "yaml": ">=2.8.3",
+      "fast-xml-parser": ">=5.7.0",
+      "@tootallnate/once": ">=3.0.1"
+    }
   }
 }
