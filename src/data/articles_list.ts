@@ -6,6 +6,11 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/archives",
     "articles": [
       {
+        "title": "烟花模拟器",
+        "url": "https://blog.xuezero.com/archives/rP631lk9",
+        "time": "2026/06/02"
+      },
+      {
         "title": "Halo PDF 插件",
         "url": "https://blog.xuezero.com/archives/CogvtHeB",
         "time": "2026/05/06"
@@ -24,11 +29,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "Halo 扩展数据管理工具",
         "url": "https://blog.xuezero.com/archives/QFOFKDLR",
         "time": "2026/03/06"
-      },
-      {
-        "title": "Git 操作之压缩提交记录",
-        "url": "https://blog.xuezero.com/archives/qoGAU8z3",
-        "time": "2026/02/26"
       }
     ]
   },
@@ -68,6 +68,11 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/categories/record",
     "articles": [
       {
+        "title": "烟花模拟器",
+        "url": "https://blog.xuezero.com/archives/rP631lk9",
+        "time": "2026/06/02"
+      },
+      {
         "title": "Halo PDF 插件",
         "url": "https://blog.xuezero.com/archives/CogvtHeB",
         "time": "2026/05/06"
@@ -86,11 +91,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "Halo 扩展数据管理工具",
         "url": "https://blog.xuezero.com/archives/QFOFKDLR",
         "time": "2026/03/06"
-      },
-      {
-        "title": "Git 操作之压缩提交记录",
-        "url": "https://blog.xuezero.com/archives/qoGAU8z3",
-        "time": "2026/02/26"
       }
     ]
   },
