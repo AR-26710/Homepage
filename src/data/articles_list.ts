@@ -6,6 +6,16 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/archives",
     "articles": [
       {
+        "title": "浏览器标签页通信：8 种跨标签页通信方案详解与实践",
+        "url": "https://blog.xuezero.com/archives/Ph7tQRzY",
+        "time": "2026/07/06"
+      },
+      {
+        "title": "我说我要再装一个，他说没有用没必要。",
+        "url": "https://blog.xuezero.com/archives/3vND0DLy",
+        "time": "2026/07/05"
+      },
+      {
         "title": "烟花模拟器",
         "url": "https://blog.xuezero.com/archives/rP631lk9",
         "time": "2026/06/02"
@@ -19,16 +29,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "谈谈我不喜欢的博客网站",
         "url": "https://blog.xuezero.com/archives/NYdpOLBJ",
         "time": "2026/04/07"
-      },
-      {
-        "title": "Halo 附件上传助手",
-        "url": "https://blog.xuezero.com/archives/dcGsxMcn",
-        "time": "2026/04/01"
-      },
-      {
-        "title": "Halo 扩展数据管理工具",
-        "url": "https://blog.xuezero.com/archives/QFOFKDLR",
-        "time": "2026/03/06"
       }
     ]
   },
@@ -36,6 +36,11 @@ export const articleCategories: ArticleCategory[] = [
     "title": "测试",
     "url": "https://blog.xuezero.com/categories/test",
     "articles": [
+      {
+        "title": "浏览器标签页通信：8 种跨标签页通信方案详解与实践",
+        "url": "https://blog.xuezero.com/archives/Ph7tQRzY",
+        "time": "2026/07/06"
+      },
       {
         "title": "Shiki 代码行功能",
         "url": "https://blog.xuezero.com/archives/QEci827H",
@@ -55,11 +60,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "使用阿里云 OSS SDK 上传文件（Java 版）",
         "url": "https://blog.xuezero.com/archives/650GA3IF",
         "time": "2025/08/28"
-      },
-      {
-        "title": "投稿者测试",
-        "url": "https://blog.xuezero.com/archives/IjPIh1zh",
-        "time": "2025/05/29"
       }
     ]
   },
@@ -67,6 +67,11 @@ export const articleCategories: ArticleCategory[] = [
     "title": "记录",
     "url": "https://blog.xuezero.com/categories/record",
     "articles": [
+      {
+        "title": "我说我要再装一个，他说没有用没必要。",
+        "url": "https://blog.xuezero.com/archives/3vND0DLy",
+        "time": "2026/07/05"
+      },
       {
         "title": "烟花模拟器",
         "url": "https://blog.xuezero.com/archives/rP631lk9",
@@ -86,11 +91,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "Halo 附件上传助手",
         "url": "https://blog.xuezero.com/archives/dcGsxMcn",
         "time": "2026/04/01"
-      },
-      {
-        "title": "Halo 扩展数据管理工具",
-        "url": "https://blog.xuezero.com/archives/QFOFKDLR",
-        "time": "2026/03/06"
       }
     ]
   },
