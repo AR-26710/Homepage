@@ -6,6 +6,11 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/archives",
     "articles": [
       {
+        "title": "自由与安全，从来都是能力问题",
+        "url": "https://blog.xuezero.com/archives/DpZdJKs6",
+        "time": "2026/08/21"
+      },
+      {
         "title": "浏览器标签页通信：8 种跨标签页通信方案详解与实践",
         "url": "https://blog.xuezero.com/archives/Ph7tQRzY",
         "time": "2026/07/06"
@@ -24,11 +29,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "Halo PDF 插件",
         "url": "https://blog.xuezero.com/archives/CogvtHeB",
         "time": "2026/05/06"
-      },
-      {
-        "title": "谈谈我不喜欢的博客网站",
-        "url": "https://blog.xuezero.com/archives/NYdpOLBJ",
-        "time": "2026/04/07"
       }
     ]
   },
@@ -68,6 +68,11 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/categories/record",
     "articles": [
       {
+        "title": "自由与安全，从来都是能力问题",
+        "url": "https://blog.xuezero.com/archives/DpZdJKs6",
+        "time": "2026/08/21"
+      },
+      {
         "title": "我说我要再装一个，他说没有用没必要。",
         "url": "https://blog.xuezero.com/archives/3vND0DLy",
         "time": "2026/07/05"
@@ -86,11 +91,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "谈谈我不喜欢的博客网站",
         "url": "https://blog.xuezero.com/archives/NYdpOLBJ",
         "time": "2026/04/07"
-      },
-      {
-        "title": "Halo 附件上传助手",
-        "url": "https://blog.xuezero.com/archives/dcGsxMcn",
-        "time": "2026/04/01"
       }
     ]
   },
