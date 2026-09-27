@@ -6,6 +6,21 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/archives",
     "articles": [
       {
+        "title": "文章组件全组件演示：一次跑完 28 个组件",
+        "url": "https://blog.xuezero.com/archives/content-widgets-all-demo",
+        "time": "2026/09/26"
+      },
+      {
+        "title": "文章组件测试",
+        "url": "https://blog.xuezero.com/archives/x7yIdxbK",
+        "time": "2026/09/26"
+      },
+      {
+        "title": "Halo MCP 使用指南：让 AI 直接管理你的博客",
+        "url": "https://blog.xuezero.com/archives/halo-mcp-usage-guide",
+        "time": "2026/09/25"
+      },
+      {
         "title": "自由与安全，从来都是能力问题",
         "url": "https://blog.xuezero.com/archives/DpZdJKs6",
         "time": "2026/08/21"
@@ -14,21 +29,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "浏览器标签页通信：8 种跨标签页通信方案详解与实践",
         "url": "https://blog.xuezero.com/archives/Ph7tQRzY",
         "time": "2026/07/06"
-      },
-      {
-        "title": "我说我要再装一个，他说没有用没必要。",
-        "url": "https://blog.xuezero.com/archives/3vND0DLy",
-        "time": "2026/07/05"
-      },
-      {
-        "title": "烟花模拟器",
-        "url": "https://blog.xuezero.com/archives/rP631lk9",
-        "time": "2026/06/02"
-      },
-      {
-        "title": "Halo PDF 插件",
-        "url": "https://blog.xuezero.com/archives/CogvtHeB",
-        "time": "2026/05/06"
       }
     ]
   },
@@ -36,6 +36,21 @@ export const articleCategories: ArticleCategory[] = [
     "title": "测试",
     "url": "https://blog.xuezero.com/categories/test",
     "articles": [
+      {
+        "title": "文章组件全组件演示：一次跑完 28 个组件",
+        "url": "https://blog.xuezero.com/archives/content-widgets-all-demo",
+        "time": "2026/09/26"
+      },
+      {
+        "title": "文章组件测试",
+        "url": "https://blog.xuezero.com/archives/x7yIdxbK",
+        "time": "2026/09/26"
+      },
+      {
+        "title": "Halo MCP 使用指南：让 AI 直接管理你的博客",
+        "url": "https://blog.xuezero.com/archives/halo-mcp-usage-guide",
+        "time": "2026/09/25"
+      },
       {
         "title": "浏览器标签页通信：8 种跨标签页通信方案详解与实践",
         "url": "https://blog.xuezero.com/archives/Ph7tQRzY",
@@ -45,21 +60,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "Shiki 代码行功能",
         "url": "https://blog.xuezero.com/archives/QEci827H",
         "time": "2026/02/07"
-      },
-      {
-        "title": "PWA：让 Web 应用拥有原生 App 体验的关键技术",
-        "url": "https://blog.xuezero.com/archives/9KIepALR",
-        "time": "2026/01/11"
-      },
-      {
-        "title": "文章阅读限制",
-        "url": "https://blog.xuezero.com/archives/k1TkAOkn",
-        "time": "2025/12/27"
-      },
-      {
-        "title": "使用阿里云 OSS SDK 上传文件（Java 版）",
-        "url": "https://blog.xuezero.com/archives/650GA3IF",
-        "time": "2025/08/28"
       }
     ]
   },
