@@ -16,5 +16,6 @@ jobs:
 
   update-last-update:
     needs: [sync-halo-articles, update-bilibili-views]
+    if: ${{ needs['sync-halo-articles'].result == 'success' || needs['update-bilibili-views'].result == 'success' }}
     uses: ./.github/workflows/update-last-update.yml
     secrets: inherit
