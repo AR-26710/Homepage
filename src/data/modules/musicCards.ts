@@ -25,7 +25,7 @@ export default [
     title: "《崩坏：星穹铁道》白厄角色PV——「日冕」",
     desc: "崩坏星穹铁道",
     url: "https://www.bilibili.com/video/BV1HfKiz3Ezf",
-    btnText: "2994.3W views 🎥",
+    btnText: "2994.4W views 🎥",
     bgStyle:
       "bg-[url('https://oss.houxiongxiong.icu/home/video-cover/BV1HfKiz3Ezf.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
     textStyle: "text-white",
