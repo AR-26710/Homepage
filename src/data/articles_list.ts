@@ -88,7 +88,7 @@ export const articleCategories: ArticleCategory[] = [
         "time": "2026/07/05"
       },
       {
-        "title": "烟花模拟器",
+        "title": "基于 Vue 3 与 TypeScript 重构的 Canvas 网页烟花模拟器",
         "url": "https://blog.xuezero.com/archives/rP631lk9",
         "time": "2026/06/02"
       }
@@ -178,17 +178,17 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/categories/summarize",
     "articles": [
       {
-        "title": "《魔法少女小圆剧场版 [前篇] 起始的物语》",
+        "title": "从丘比的契约看《魔法少女小圆》中的希望与绝望",
         "url": "https://blog.xuezero.com/archives/HQagWR7R",
         "time": "2025/02/12"
       },
       {
-        "title": "DCDN宕机修复",
+        "title": "DCDN 502 宕机排查与回源域名修复记录",
         "url": "https://blog.xuezero.com/archives/Zw9Aidk5",
         "time": "2024/08/03"
       },
       {
-        "title": "销户经历",
+        "title": "移动校园卡合约陷阱与异地销户经历",
         "url": "https://blog.xuezero.com/archives/9GmEYZJ3",
         "time": "2024/05/14"
       }
