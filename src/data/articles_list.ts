@@ -6,6 +6,11 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/archives",
     "articles": [
       {
+        "title": "手机在车上消失的一夜：一次完整的找回复盘",
+        "url": "https://blog.xuezero.com/archives/lost-phone-tracking-notes",
+        "time": "2026/10/19"
+      },
+      {
         "title": "记一次 Halo 后台界面突然变成英文：一场浏览器缓存引发的假故障",
         "url": "https://blog.xuezero.com/archives/halo-console-ui-lang-english-cache",
         "time": "2026/10/16"
@@ -24,11 +29,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "Halo MCP 使用指南：让 AI 直接管理你的博客",
         "url": "https://blog.xuezero.com/archives/halo-mcp-usage-guide",
         "time": "2026/09/25"
-      },
-      {
-        "title": "自由与安全，从来都是能力问题",
-        "url": "https://blog.xuezero.com/archives/DpZdJKs6",
-        "time": "2026/08/21"
       }
     ]
   },
@@ -52,14 +52,14 @@ export const articleCategories: ArticleCategory[] = [
         "time": "2026/07/06"
       },
       {
-        "title": "Shiki 代码行功能",
-        "url": "https://blog.xuezero.com/archives/QEci827H",
-        "time": "2026/02/07"
-      },
-      {
         "title": "PWA：让 Web 应用拥有原生 App 体验的关键技术",
         "url": "https://blog.xuezero.com/archives/9KIepALR",
         "time": "2026/01/11"
+      },
+      {
+        "title": "文章阅读限制",
+        "url": "https://blog.xuezero.com/archives/k1TkAOkn",
+        "time": "2025/12/27"
       }
     ]
   },
@@ -67,6 +67,11 @@ export const articleCategories: ArticleCategory[] = [
     "title": "记录",
     "url": "https://blog.xuezero.com/categories/record",
     "articles": [
+      {
+        "title": "手机在车上消失的一夜：一次完整的找回复盘",
+        "url": "https://blog.xuezero.com/archives/lost-phone-tracking-notes",
+        "time": "2026/10/19"
+      },
       {
         "title": "记一次 Halo 后台界面突然变成英文：一场浏览器缓存引发的假故障",
         "url": "https://blog.xuezero.com/archives/halo-console-ui-lang-english-cache",
@@ -86,11 +91,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "我说我要再装一个，他说没有用没必要。",
         "url": "https://blog.xuezero.com/archives/3vND0DLy",
         "time": "2026/07/05"
-      },
-      {
-        "title": "基于 Vue 3 与 TypeScript 重构的 Canvas 网页烟花模拟器",
-        "url": "https://blog.xuezero.com/archives/rP631lk9",
-        "time": "2026/06/02"
       }
     ]
   },
