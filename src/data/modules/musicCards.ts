@@ -5,7 +5,7 @@ export default [
     url: "https://www.bilibili.com/video/BV1Ut411v74a",
     btnText: "1989.7W views 🎥",
     bgStyle:
-      "bg-[url('https://oss.aly.houxiongxiong.icu/home/video-cover/BV1Ut411v74a.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
+      "bg-[url('https://one.oss.aly.houxiongxiong.icu/home/video-cover/BV1Ut411v74a.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
     textStyle: "text-white",
     btnStyle: "glass",
     btnTextStyle: "text-white capitalize",
@@ -16,7 +16,7 @@ export default [
     url: "https://www.bilibili.com/video/BV1b44y1q7Cb",
     btnText: "2616.7W views 🎥",
     bgStyle:
-      "bg-[url('https://oss.aly.houxiongxiong.icu/home/video-cover/BV1cs4y1z7Mq.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
+      "bg-[url('https://one.oss.aly.houxiongxiong.icu/home/video-cover/BV1cs4y1z7Mq.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
     textStyle: "text-white",
     btnStyle: "glass",
     btnTextStyle: "text-white capitalize",
@@ -27,7 +27,7 @@ export default [
     url: "https://www.bilibili.com/video/BV1HfKiz3Ezf",
     btnText: "3036.9W views 🎥",
     bgStyle:
-      "bg-[url('https://oss.aly.houxiongxiong.icu/home/video-cover/BV1HfKiz3Ezf.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
+      "bg-[url('https://one.oss.aly.houxiongxiong.icu/home/video-cover/BV1HfKiz3Ezf.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
     textStyle: "text-white",
     btnStyle: "glass",
     btnTextStyle: "text-white capitalize",
@@ -38,7 +38,7 @@ export default [
     url: "https://www.bilibili.com/video/BV13Sbqz1EKg",
     btnText: "215.2W views 🎥",
     bgStyle:
-      "bg-[url('https://oss.aly.houxiongxiong.icu/home/video-cover/BV13Sbqz1EKg.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
+      "bg-[url('https://one.oss.aly.houxiongxiong.icu/home/video-cover/BV13Sbqz1EKg.jpg')] bg-cover bg-center shadow-accent hover:shadow-gray-500",
     textStyle: "text-white",
     btnStyle: "glass",
     btnTextStyle: "text-white capitalize",
