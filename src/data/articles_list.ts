@@ -6,6 +6,11 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/archives",
     "articles": [
       {
+        "title": "Halo 主题开发：为访客评论适配 Gravatar 头像",
+        "url": "https://blog.xuezero.com/archives/3xcGTW7N",
+        "time": "2026/11/03"
+      },
+      {
         "title": "手机在车上消失的一夜：一次完整的找回复盘",
         "url": "https://blog.xuezero.com/archives/lost-phone-tracking-notes",
         "time": "2026/10/19"
@@ -24,11 +29,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "文章组件全组件演示：一次跑完 28 个组件",
         "url": "https://blog.xuezero.com/archives/content-widgets-all-demo",
         "time": "2026/09/26"
-      },
-      {
-        "title": "Halo MCP 使用指南：让 AI 直接管理你的博客",
-        "url": "https://blog.xuezero.com/archives/halo-mcp-usage-guide",
-        "time": "2026/09/25"
       }
     ]
   },
@@ -68,6 +68,11 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/categories/record",
     "articles": [
       {
+        "title": "Halo 主题开发：为访客评论适配 Gravatar 头像",
+        "url": "https://blog.xuezero.com/archives/3xcGTW7N",
+        "time": "2026/11/03"
+      },
+      {
         "title": "手机在车上消失的一夜：一次完整的找回复盘",
         "url": "https://blog.xuezero.com/archives/lost-phone-tracking-notes",
         "time": "2026/10/19"
@@ -86,11 +91,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "自由与安全，从来都是能力问题",
         "url": "https://blog.xuezero.com/archives/DpZdJKs6",
         "time": "2026/08/21"
-      },
-      {
-        "title": "我说我要再装一个，他说没有用没必要。",
-        "url": "https://blog.xuezero.com/archives/3vND0DLy",
-        "time": "2026/07/05"
       }
     ]
   },
