@@ -6,6 +6,16 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/archives",
     "articles": [
       {
+        "title": "修复 Halo Pro 注册页邮箱验证码 ALTCHA 失效的完整排查记录",
+        "url": "https://blog.xuezero.com/archives/3eGBwBGN",
+        "time": "2026/11/22"
+      },
+      {
+        "title": "为 Halo 主题开发适配本地开发模式",
+        "url": "https://blog.xuezero.com/archives/wz3hMNo5",
+        "time": "2026/11/18"
+      },
+      {
         "title": "Halo 主题开发：为访客评论适配 Gravatar 头像",
         "url": "https://blog.xuezero.com/archives/3xcGTW7N",
         "time": "2026/11/03"
@@ -19,16 +29,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "记一次 Halo 后台界面突然变成英文：一场浏览器缓存引发的假故障",
         "url": "https://blog.xuezero.com/archives/halo-console-ui-lang-english-cache",
         "time": "2026/10/16"
-      },
-      {
-        "title": "记一次 18W+ 项目依赖残留撑爆 Win10 回收站导致死机的抢救经历",
-        "url": "https://blog.xuezero.com/archives/win10-recycle-bin-cleanup-powershell",
-        "time": "2026/10/06"
-      },
-      {
-        "title": "文章组件全组件演示：一次跑完 28 个组件",
-        "url": "https://blog.xuezero.com/archives/content-widgets-all-demo",
-        "time": "2026/09/26"
       }
     ]
   },
@@ -68,6 +68,16 @@ export const articleCategories: ArticleCategory[] = [
     "url": "https://blog.xuezero.com/categories/record",
     "articles": [
       {
+        "title": "修复 Halo Pro 注册页邮箱验证码 ALTCHA 失效的完整排查记录",
+        "url": "https://blog.xuezero.com/archives/3eGBwBGN",
+        "time": "2026/11/22"
+      },
+      {
+        "title": "为 Halo 主题开发适配本地开发模式",
+        "url": "https://blog.xuezero.com/archives/wz3hMNo5",
+        "time": "2026/11/18"
+      },
+      {
         "title": "Halo 主题开发：为访客评论适配 Gravatar 头像",
         "url": "https://blog.xuezero.com/archives/3xcGTW7N",
         "time": "2026/11/03"
@@ -81,16 +91,6 @@ export const articleCategories: ArticleCategory[] = [
         "title": "记一次 Halo 后台界面突然变成英文：一场浏览器缓存引发的假故障",
         "url": "https://blog.xuezero.com/archives/halo-console-ui-lang-english-cache",
         "time": "2026/10/16"
-      },
-      {
-        "title": "记一次 18W+ 项目依赖残留撑爆 Win10 回收站导致死机的抢救经历",
-        "url": "https://blog.xuezero.com/archives/win10-recycle-bin-cleanup-powershell",
-        "time": "2026/10/06"
-      },
-      {
-        "title": "自由与安全，从来都是能力问题",
-        "url": "https://blog.xuezero.com/archives/DpZdJKs6",
-        "time": "2026/08/21"
       }
     ]
   },
